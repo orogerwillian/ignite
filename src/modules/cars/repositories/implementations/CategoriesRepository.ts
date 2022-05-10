@@ -1,13 +1,12 @@
-import { Category } from "../model/Category";
+import { Category } from "../../model/Category";
 import {
   ICategoriesRepository,
   ICreateCategoryDTO,
-} from "./ICategoriesRepository";
+} from "../ICategoriesRepository";
 
 class CategoriesRepository implements ICategoriesRepository {
   private categories: Category[];
 
-  // eslint-disable-next-line no-use-before-define
   private static INSTANCE: CategoriesRepository = null;
 
   private constructor() {
@@ -18,7 +17,7 @@ class CategoriesRepository implements ICategoriesRepository {
     if (!CategoriesRepository.INSTANCE) {
       CategoriesRepository.INSTANCE = new CategoriesRepository();
     }
-    return CategoriesRepository.getInstance();
+    return CategoriesRepository.INSTANCE;
   }
 
   create({ name, description }: ICreateCategoryDTO): void {

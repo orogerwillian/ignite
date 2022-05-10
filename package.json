@@ -4,10 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
+    "clean": "yarn tsc --build --clean",
+    "build": "yarn clean && yarn tsc"
   },
   "dependencies": {
     "express": "^4.18.1",
+    "multer": "^1.4.4",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
