@@ -4,7 +4,7 @@ import { getRepository, Repository } from "typeorm";
 
 class CategoriesRepository implements ICategoriesRepository {
 
-  private repository: Repogsitory<Category>;
+  private repository: Repository<Category>;
 
   constructor() {
     this.repository = getRepository(Category);
