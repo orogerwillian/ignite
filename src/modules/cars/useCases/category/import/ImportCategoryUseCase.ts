@@ -2,15 +2,19 @@ import fs from "fs";
 import {parse} from "csv-parse";
 import {ICategoriesRepository} from "../../../repositories/ICategoriesRepository";
 import {Express} from "express";
+import {inject, injectable} from "tsyringe";
 
 interface IImportCategory {
     name: string;
     description: string;
 }
 
+@injectable()
 class ImportCategoryUseCase {
 
-    constructor(private categoriesRepository: ICategoriesRepository) {
+    constructor(
+        @inject("CategoriesRepository")
+        private categoriesRepository: ICategoriesRepository) {
     }
 
     // @ts-ignore
