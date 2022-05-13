@@ -11,8 +11,11 @@ services:
       - POSTGRES_USER=docker
       - POSTGRES_PASSWORD=ignite
       - POSTGRES_DB=rentalx
+      - POSTGRES_PORT=5432
     volumes:
       - pgdata:/data/postgres
+    networks:
+      - postgres-compose-network
   app:
     build: .
     container_name: rentalx
@@ -20,10 +23,14 @@ services:
       - "3333:3333"
     volumes:
       - .:/usr/app
-    links:
-      - database_ignite
     depends_on:
       - database_ignite
+    networks:
+      - postgres-compose-network
 volumes:
   pgdata:
     driver: local
+
+networks:
+  postgres-compose-network:
+    driver: bridge

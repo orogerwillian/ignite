@@ -1,6 +1,6 @@
 {
   "type": "postgres",
-  "host": "localhost",
+  "host": "database_ignite",
   "port": 5432,
   "username": "docker",
   "password": "ignite",
@@ -8,6 +8,9 @@
   "migrations": [
     "./src/database/migrations/*.ts"
   ],
+  "cli": {
+    "migrationsDir": "./src/database/migrations"
+  },
   "entities": [
     "./src/modules/**/entities/*.ts"
   ]
