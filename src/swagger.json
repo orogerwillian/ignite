@@ -136,9 +136,9 @@
         },
         "responses": {
           "201": {
-            "description": "Success"
+            "description": "Created"
           },
-          "500": {
+          "400": {
             "description": "Specification already exists"
           }
         }
