@@ -1,7 +1,8 @@
-import {ICreateUserDTO} from "../../../dtos/ICreateUserDTO";
 import {Request, Response} from "express";
 import {container} from "tsyringe";
-import {CreateUserUseCase} from "./CreateUserUseCase";
+
+import {ICreateUserDTO} from "@modules/accounts/dtos/ICreateUserDTO";
+import {CreateUserUseCase} from "@modules/accounts/useCases/user/create/CreateUserUseCase";
 
 class CreateUserController {
 

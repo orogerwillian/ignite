@@ -1,5 +1,5 @@
 import { createConnection } from "typeorm";
-import {AppError} from "../errors/AppError";
+import {AppError} from "@errors/AppError";
 
 createConnection()
   .then(() => {

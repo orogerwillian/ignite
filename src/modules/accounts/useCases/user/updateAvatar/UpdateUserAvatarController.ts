@@ -1,6 +1,7 @@
 import {Request, Response} from "express";
 import {container} from "tsyringe";
-import {UpdateUserAvatarUseCase} from "./UpdateUserAvatarUseCase";
+
+import {UpdateUserAvatarUseCase} from "@modules/accounts/useCases/user/updateAvatar/UpdateUserAvatarUseCase";
 
 class UpdateUserAvatarController {
 

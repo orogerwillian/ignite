@@ -1,8 +1,9 @@
 import fs from "fs";
 import {parse} from "csv-parse";
-import {ICategoriesRepository} from "../../../repositories/ICategoriesRepository";
 import {Express} from "express";
 import {inject, injectable} from "tsyringe";
+
+import {ICategoriesRepository} from "@modules/cars/repositories/ICategoriesRepository";
 
 interface IImportCategory {
     name: string;
