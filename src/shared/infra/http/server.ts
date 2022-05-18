@@ -28,6 +28,6 @@ app.use((err: Error, request: Request, response: Response) => {
         status: "error",
         message: `Internal server error - ${err.message}`
     });
-})
+});
 
 app.listen(3333, () => console.log("Server is running"));
