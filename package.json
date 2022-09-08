@@ -7,8 +7,9 @@
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "clean": "yarn tsc --build --clean",
     "build": "yarn clean && yarn tsc",
-    "migrate": "ts-node-dev node_modules/typeorm/cli migration:run",
-    "test": "jest --verbose"
+    "migrate": "ts-node-dev -r tsconfig-paths/register node_modules/typeorm/cli migration:run",
+    "test": "jest --verbose",
+    "seed:admin": "ts-node-dev -r tsconfig-paths/register src/shared/infra/typeorm/seed/admin.ts"
   },
   "dependencies": {
     "@types/node": "^17.0.32",

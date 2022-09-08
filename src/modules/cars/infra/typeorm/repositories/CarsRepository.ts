@@ -1,4 +1,4 @@
-import {getRepository, Repository} from "typeorm";
+import {getRepository, Like, Repository} from "typeorm";
 
 import {ICarsRepository} from "@modules/cars/repositories/ICarsRepository";
 import {ICreateCarDTO} from "@modules/cars/dtos/ICreateCarDTO";
@@ -13,22 +13,26 @@ class CarsRepository implements ICarsRepository {
     }
 
     async create({
+                     id,
                      brand,
                      category_id,
                      daily_rate,
                      description,
                      name,
                      fine_amount,
-                     license_plate
+                     license_plate,
+                     specifications
                  }: ICreateCarDTO): Promise<Car> {
         const car = this.repository.create({
+            id,
             brand,
             category_id,
             daily_rate,
             description,
             name,
             fine_amount,
-            license_plate
+            license_plate,
+            specifications
         });
 
         await this.repository.save(car);
@@ -38,6 +42,32 @@ class CarsRepository implements ICarsRepository {
 
     findByLicencePlate(license_plate: string): Promise<Car> {
         return this.repository.findOne({license_plate});
+    }
+
+    async findAvailable(brand?: string, category_id?: string, name?: string): Promise<Car[]> {
+        const carsQuery = this.repository
+            .createQueryBuilder("car")
+            .where("available = :available", {available: true});
+
+        if (brand) {
+            carsQuery.andWhere("brand like :brand", {brand})
+        }
+
+        if (name) {
+            carsQuery.andWhere("name = :name", {name});
+        }
+
+        if (category_id) {
+            carsQuery.andWhere("category_id = :category_id", {category_id});
+        }
+
+        console.log(carsQuery.getSql());
+
+        return await carsQuery.getMany();
+    }
+
+    async findById(id: string): Promise<Car> {
+        return await this.repository.findOne(id);
     }
 
 }

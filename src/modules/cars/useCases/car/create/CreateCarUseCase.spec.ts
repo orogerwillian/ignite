@@ -1,7 +1,8 @@
+import "reflect-metadata";
+
 import {CreateCarUseCase} from "@modules/cars/useCases/car/create/CreateCarUseCase";
 import {CarsRepositoryInMemory} from "@modules/cars/repositories/in-memory/CarsRepositoryInMemory";
 import {AppError} from "@errors/AppError";
-import exp from "constants";
 
 let createCarUseCase: CreateCarUseCase;
 let carsReposity: CarsRepositoryInMemory;
@@ -17,7 +18,7 @@ describe("Create Car", () => {
             name: "Name car",
             description: "Description Car",
             daily_rate: 100,
-            licence_plate: "ABC-1234",
+            license_plate: "ABC-1234",
             brand: "Brand",
             category_id: "category",
             fine_amount: 60
@@ -32,7 +33,7 @@ describe("Create Car", () => {
                 name: "Car 1",
                 description: "Description Car",
                 daily_rate: 100,
-                licence_plate: "ABC-1234",
+                license_plate: "ABC-1234",
                 brand: "Brand",
                 category_id: "category",
                 fine_amount: 60
@@ -42,7 +43,7 @@ describe("Create Car", () => {
                 name: "Car 2",
                 description: "Description Car",
                 daily_rate: 100,
-                licence_plate: "ABC-1234",
+                license_plate: "ABC-1234",
                 brand: "Brand",
                 category_id: "category",
                 fine_amount: 60
@@ -55,7 +56,7 @@ describe("Create Car", () => {
             name: "Car Avaliable",
             description: "Description Car",
             daily_rate: 100,
-            licence_plate: "ABCD-1234",
+            license_plate: "ABCD-1234",
             brand: "Brand",
             category_id: "category",
             fine_amount: 60

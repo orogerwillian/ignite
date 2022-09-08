@@ -1,10 +1,11 @@
-import { createConnection } from "typeorm";
-import {AppError} from "@errors/AppError";
+import {Connection, createConnection, getConnectionOptions} from "typeorm";
 
-createConnection()
-  .then(() => {
-    console.log("Database connected!");
-  })
-  .catch(error => {
-    throw new AppError(error)
-  });
+export default async (): Promise<Connection> => {
+    const defaultOptions = await getConnectionOptions();
+
+    return createConnection(
+        Object.assign(defaultOptions, {
+            host: "database_ignite"
+        })
+    );
+}

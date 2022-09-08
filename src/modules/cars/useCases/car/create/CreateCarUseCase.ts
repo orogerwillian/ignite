@@ -1,8 +1,9 @@
+import {inject, injectable} from "tsyringe";
+
 import {ICarsRepository} from "@modules/cars/repositories/ICarsRepository";
 import {ICreateCarDTO} from "@modules/cars/dtos/ICreateCarDTO";
 import {AppError} from "@errors/AppError";
 import {Car} from "@modules/cars/infra/typeorm/entities/Car";
-import {inject, injectable} from "tsyringe";
 
 @injectable()
 class CreateCarUseCase {
