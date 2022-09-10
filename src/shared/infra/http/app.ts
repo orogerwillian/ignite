@@ -9,9 +9,7 @@ import {AppError} from "@shared/errors/AppError";
 import createConnection from "@shared/infra/typeorm";
 import "@shared/container";
 
-createConnection()
-    .then(() => console.log("Database connected!"))
-    .catch(err => console.error(err.message));
+createConnection().catch(err => console.error(err.message));
 
 const app = express();
 
